@@ -10,6 +10,11 @@ const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_HOST = process.env.DB_HOST;
 const DB_PORT = process.env.DB_PORT;
 const SECRET_KEY = process.env.SECRET_KEY;
+
+if(!PORT || !DB_TABLE_NAME || !DB_USER || !DB_USER || !DB_PASSWORD || !DB_HOST || !DB_PORT || !SECRET_KEY) {
+    console.error("нету енвов")
+    return;
+}
 /*
   Include the user model for saving to MongoDB VIA mongoose
 */
@@ -118,7 +123,7 @@ const Connect = async () => {
     })
 
     app.listen(PORT, () => {
-        console.log(`Server started. on port: ${SECRET_KEY}`)
+        console.log(`Server started. on port: ${PORT}`)
     });
 
 }
